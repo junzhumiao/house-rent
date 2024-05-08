@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.jzm.backme.mapper.UserMapper">
+
+	<select id="selectRole" resultType="com.jzm.backme.domain.Role" parameterType="java.lang.Long">
+		SELECT `role`.* FROM `role` LEFT JOIN `user_role`
+		ON `user_role`.role_id = `role`.role_id LEFT JOIN `user`
+		ON `user`.user_id = `user_role`.user_id WHERE `user`.user_id = #{userId};
+	</select>
+
+</mapper>
